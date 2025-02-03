@@ -229,7 +229,9 @@ export default function Page() {
                     name="upload"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Upload a picture ( this is not compulsory)</FormLabel>
+                        <FormLabel>
+                          Upload a picture <span className="text-sm">(this is not compulsory)</span>
+                        </FormLabel>
                         <FormControl>
                           <Input
                             type="file"
