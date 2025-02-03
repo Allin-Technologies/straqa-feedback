@@ -150,9 +150,15 @@ export default function Page() {
       <section className="w-full max-w-screen-2xl mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-0 py-8 lg:py-12 2xl:py-16 space-y-8 2xl:space-y-16">
         <div className="max-w-[580px] mx-auto gap-8">
           <div className="space-y-4 lg:space-y-6 xl:space-y-8 2xl:space-y-12">
-            <h1 className="prose text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-center">
-              121 selah - Finding home Tour!
-            </h1>
+            <div className="text-center space-y-2">
+              <h1 className="prose text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold">
+                We Value Your Experience!
+              </h1>
+              <p>
+                Share your thoughts on the 121 Selah: Finding Home Concert—your feedback helps us
+                create even more meaningful experiences!
+              </p>
+            </div>
 
             <Form {...formMethods}>
               <form id={formID} onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
