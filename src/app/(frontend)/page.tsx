@@ -229,7 +229,7 @@ export default function Page() {
                     name="upload"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>How was your experience</FormLabel>
+                        <FormLabel>Upload a picture ( this is not compulsory)</FormLabel>
                         <FormControl>
                           <Input
                             type="file"
