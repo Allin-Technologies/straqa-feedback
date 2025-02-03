@@ -39,6 +39,7 @@ const FormSchema = z.object({
 })
 
 const formID = '67a0afff88dab3dae2bded8b'
+// const formID = '679e61e98cbf538dd1ded437'
 
 export default function Page() {
   const [file, setFile] = useState<File>()
@@ -70,9 +71,14 @@ export default function Page() {
     (data: z.infer<typeof FormSchema>) => {
       let loadingTimerID: ReturnType<typeof setTimeout>
       const submitForm = async () => {
+        // delay loading indicator by 1s
+        loadingTimerID = setTimeout(() => {
+          setIsLoading(true)
+        }, 1000)
+
         setError(undefined)
 
-        let uploadBase64: string | undefined
+        let uploadBase64 = ''
 
         if (data.upload && data.upload.length > 0 && file) {
           try {
@@ -80,6 +86,7 @@ export default function Page() {
           } catch (err) {
             console.error('Error converting file:', err)
             setError({ message: 'File upload failed.' })
+            clearTimeout(loadingTimerID)
             return
           }
         }
@@ -88,11 +95,6 @@ export default function Page() {
           field: name,
           value: name === 'upload' ? uploadBase64 : value, // Attach Base64 string
         }))
-
-        // delay loading indicator by 1s
-        loadingTimerID = setTimeout(() => {
-          setIsLoading(true)
-        }, 1000)
 
         try {
           const req = await fetch(`${getClientSideURL()}/api/form-submissions`, {
