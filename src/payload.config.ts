@@ -58,7 +58,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   collections: [Media, Users],
-  cors: [getServerSideURL()].filter(Boolean),
+  cors: [getServerSideURL(), 'straqa.com'].filter(Boolean),
   plugins: [
     ...plugins,
     // storage-adapter-placeholder
